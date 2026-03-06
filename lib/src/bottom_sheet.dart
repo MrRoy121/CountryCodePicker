@@ -18,6 +18,7 @@ class SelectionBottomSheet extends StatefulWidget {
   final Size? size;
   final bool hideSearch;
   final Icon? closeIcon;
+  final List<BoxShadow>? boxShadow;
 
   /// Background color of SelectionBottomSheet
   final Color? backgroundColor;
@@ -43,6 +44,7 @@ class SelectionBottomSheet extends StatefulWidget {
     this.flagWidth = 32,
     this.size,
     this.backgroundColor,
+    this.boxShadow,
     this.barrierColor,
     this.hideSearch = false,
     this.closeIcon,
@@ -71,13 +73,12 @@ class _SelectionBottomSheetState extends State<SelectionBottomSheet> {
               BoxDecoration(
                 color: widget.backgroundColor ?? Colors.white,
                 borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                boxShadow: [
+                boxShadow: widget.boxShadow ?? [
                   BoxShadow(
-                    color: widget.barrierColor ?? Colors.grey
-                      ..withAlpha(255),
+                    color: widget.barrierColor ?? Colors.grey.withAlpha(255),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: const Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
